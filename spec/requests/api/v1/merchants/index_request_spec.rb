@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'Merchant Items Index' do
-	it 'can get merchant for an item' do
+	it 'can get a merchants items' do
 		merchant = create(:merchant)
 		5.times do
 			create(:item, merchant: merchant)

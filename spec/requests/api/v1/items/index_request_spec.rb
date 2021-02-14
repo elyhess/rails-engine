@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'Item Merchant Index' do
-	it 'can get merchant for an item' do
+	it 'can get an items merchant' do
 		item = create(:item)
 		get "/api/v1/items/#{item.id}/merchant"
 
