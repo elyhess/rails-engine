@@ -4,8 +4,8 @@ module Api
 			class SearchController < ApplicationController
 
 				def index
-					merchant = Search.find_one(Merchant, params[:name]) if params[:name]
-					if merchant
+					merchant = Search.find_all_name(Merchant, params[:name]).first if params[:name]
+					if merchant.present?
 						render json: MerchantSerializer.new(merchant)
 					else
 						render json: { "data": {} }
