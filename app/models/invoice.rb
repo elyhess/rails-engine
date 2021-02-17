@@ -1,4 +1,5 @@
 class Invoice < ApplicationRecord
+	scope :shipped, -> { where(status: "shipped") }
 	belongs_to :customer
 	belongs_to :merchant
 
