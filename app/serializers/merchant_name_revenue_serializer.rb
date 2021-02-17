@@ -1,4 +1,4 @@
-class MerchantRevenueSerializer
+class MerchantNameRevenueSerializer
 	include FastJsonapi::ObjectSerializer
 	attributes :name, :revenue
 end
