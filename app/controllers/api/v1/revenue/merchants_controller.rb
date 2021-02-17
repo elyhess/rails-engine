@@ -1,18 +1,22 @@
 module Api
 	module V1
 		module Revenue
-			module Merchants
-				class MerchantsController < ApplicationController
+			class MerchantsController < ApplicationController
 
-					def most_revenue
-
+				def index
+					if params[:quantity].present?
+						merchants = Merchant.top_earners(params[:quantity])
+						render json: MerchantNameRevenueSerializer.new(merchants)
+					else
+						render json: {error: {}}, status: 400
 					end
-
-					def total_revenue
-
-					end
-
 				end
+
+				def show
+					merchant = Merchant.top_earners(1).find(params[:id])
+					render json: MerchantRevenueSerializer.new(merchant)
+				end
+
 			end
 		end
 	end
