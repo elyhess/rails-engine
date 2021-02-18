@@ -8,7 +8,6 @@ Rails.application.routes.draw do
 
 			namespace :merchants do
 				get 'find', to: 'search#index'
-				#1 - AR DONE
 				get 'most_items', to: 'items_sold#index'
 			end
 
@@ -19,12 +18,13 @@ Rails.application.routes.draw do
 			resources :merchants, only: [:index, :show] do
 				get 'items', to: 'merchants/items#index'
 			end
-			#2 DO THIS
+
 			resources :revenue, only: [:index]
+
 			namespace :revenue do
-				# Write Tests x2
 				resources :merchants, only: [:index, :show]
 			end
+
 		end
 	end
 end
