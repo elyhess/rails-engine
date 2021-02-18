@@ -36,6 +36,6 @@ To get a local copy up and running follow these simple steps.
 
 ## Schema
 <p align="center">
- <img src="https://github.com/elyhess/rails-engine/blob/main/schema.png">
+ <img src="https://github.com/elyhess/rails-engine/blob/main/Schema.png">
 </p>
 
