@@ -7,6 +7,11 @@
 
 You are working for a company developing an E-Commerce Application. Your team is working in a service-oriented architecture, meaning the front and back ends of this application are separate and communicate via APIs. Your job is to expose the data that powers the site through an API that the front end will consume.
 
+## Schema
+<p align="center">
+ <img src="https://github.com/elyhess/rails-engine/blob/main/Schema.png">
+</p>
+
 ## Setup Instructions
 To get a local copy up and running follow these simple steps.
 
@@ -33,9 +38,4 @@ To get a local copy up and running follow these simple steps.
    ```
    rails s
    ```
-
-## Schema
-<p align="center">
- <img src="https://github.com/elyhess/rails-engine/blob/main/Schema.png">
-</p>
 
