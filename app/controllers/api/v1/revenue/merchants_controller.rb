@@ -4,7 +4,7 @@ module Api
 			class MerchantsController < ApplicationController
 
 				def index
-					if params[:quantity].present?
+					if params[:quantity].present? && params[:quantity].to_i > 0
 						merchants = Merchant.top_earners(params[:quantity])
 						render json: MerchantNameRevenueSerializer.new(merchants)
 					else
