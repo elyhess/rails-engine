@@ -1,7 +1,7 @@
 class Search < ApplicationRecord
 
 	def self.find_all_name(collection, name)
-		collection.where('LOWER(name) LIKE ?', "%#{name.downcase}%")
+		collection.where('LOWER(name) ILIKE ?', "%#{name}%")
 		          .order(:name)
 	end
 

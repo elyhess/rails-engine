@@ -16,12 +16,20 @@ class Merchant < ApplicationRecord
 
 	def self.top_sellers(quantity)
 		joins(invoices: [:invoice_items, :transactions])
-			.select('merchants.*, COUNT(invoice_items.quantity)')
+			.select('merchants.*, SUM(invoice_items.quantity) AS count')
 			.merge(Invoice.shipped)
 			.merge(Transaction.successful)
-			.group(:id)
 			.order(count: :desc)
+			.group(:id)
 			.limit(quantity)
+	end
+
+	def self.revenue(start_date, end_date)
+		joins(invoices: [:invoice_items, :transactions])
+			.merge(Invoice.shipped)
+			.merge(Transaction.successful)
+			.merge(Invoice.date_between(start_date, end_date))
+			.sum('invoice_items.quantity * invoice_items.unit_price')
 	end
 
 end

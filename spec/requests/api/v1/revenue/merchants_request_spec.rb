@@ -31,7 +31,7 @@ describe "Merchants Revenue API" do
 			end
 		end
 		describe "sad path" do
-			it 'returns an error of some sort if quantity value is blank' do
+			it 'returns an error of some sort if quantity value is invalid' do
 				get "/api/v1/revenue/merchants?quantity="
 
 				expect(response.status).to eq(400)
@@ -41,6 +41,10 @@ describe "Merchants Revenue API" do
 				expect(response.status).to eq(400)
 
 				get "/api/v1/revenue/merchants"
+
+				expect(response.status).to eq(400)
+
+				get "/api/v1/revenue/merchants?quantity=striiiing"
 
 				expect(response.status).to eq(400)
 			end

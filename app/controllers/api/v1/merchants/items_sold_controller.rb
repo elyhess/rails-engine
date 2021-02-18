@@ -3,13 +3,13 @@ module Api
 		module Merchants
 			class ItemsSoldController < ApplicationController
 
-				def index # most items sold
-					#takes a quantity paramenter
-					# returns collection of x(quantity) amnt of merchants
-					# most_items?quantity=5 --- top 5 merchants with most items sold
-					#
-					# Invoices must have a successful transaction
-					# and shipped to the customer to be considered as revenue.
+				def index
+					if params[:quantity].present? && params[:quantity].to_i > 0
+						merchants = Merchant.top_sellers(params[:quantity])
+						render json: MerchantItemSerializer.new(merchants)
+					else
+						render json: {error: {}}, status: 400
+					end
 				end
 
 			end

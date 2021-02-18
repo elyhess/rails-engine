@@ -6,7 +6,7 @@ class Item < ApplicationRecord
 	has_many :transactions, through: :invoices
 
 	validates :name, presence: true
-	validates :unit_price, presence: true
+	validates :unit_price, presence: true, numericality: {only_float: true}
 	validates :description, presence: true
 
 	before_destroy :remove_invoices, prepend: true

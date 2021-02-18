@@ -43,6 +43,7 @@ group :development, :test do
   gem 'hirb'
   gem 'faker'
   gem 'factory_bot_rails'
+  gem 'brakeman'
 end
 
 group :development do
