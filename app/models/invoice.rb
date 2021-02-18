@@ -1,5 +1,9 @@
 class Invoice < ApplicationRecord
 	scope :shipped, -> { where(status: "shipped") }
+
+	scope :date_between, -> (start_date, end_date) {
+		where("invoices.created_at >= ? AND invoices.created_at < ?", start_date, end_date)}
+
 	belongs_to :customer
 	belongs_to :merchant
 
